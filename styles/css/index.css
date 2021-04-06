@@ -1,0 +1,116 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    --negro:#000000;
+    --morado-neon: rgb(231, 81, 231);
+}
+
+body{
+    background-image: url(https://inforprintsantander.es/wp-content/uploads/2016/05/Fondo-oscuro-web-inforprint-santander.png);
+}
+
+/*TOPBAR1*/
+
+.contenedor__topbar1{
+    background-color: #161616;
+    height: 15vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.contenedor__topbar1-logo{
+    flex-grow: 1;
+}
+
+.logo_topbar1{
+    margin: 20PX;
+    height: 80px;
+    width: 60px;
+}
+
+.contenedor__topbar1-buscador{
+    background-color: rgb(34, 34, 34);
+    padding: 1vh 2vw;
+    flex-grow: 5;
+    margin: 0 4vw;
+    display: flex;
+}
+
+.buscador-topbar1{
+    background-color: transparent;
+    height: 3vh;
+    width: 50vw;
+    margin: 1vh 1vw;
+    border: none;
+    color: var(--morado-neon);
+    flex-grow:9;
+}
+
+.buscador-topbar1::placeholder{
+    color: var(--morado-neon);
+    text-align: center;
+}
+
+.buscador-logo-topbar1{
+    margin: 0 1vw;
+    padding: 0 1vw;
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    color: var(--morado-neon);
+    flex-grow: 1;
+}
+
+.contenedor__topbar1-item{
+    flex-grow: 2;
+    display: flex;
+}
+
+.button-perfil{
+    font-size: 25px;
+    flex-grow: 1;
+    margin: 0 0.4vw;
+    padding: 0 1vw;
+    cursor: pointer;
+    color: var(--morado-neon);
+    background-color: transparent;
+    border: none;
+}
+
+.button-carrito{
+    font-size: 25px;
+    flex-grow: 1;
+    margin: 0 0.4vw;
+    padding: 0 1vw;
+    cursor: pointer;
+    color: var(--morado-neon);
+    background-color: transparent;
+    border: none;
+}
+
+    /*FOCUSTOPBAR1*/
+
+    .buscador-topbar1:focus{
+        outline: none;
+        }
+
+
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 650px){
+
+    /*TOPBAR1*/
+
+    .contenedor__topbar1-logo{
+        display:none;
+         }
+}

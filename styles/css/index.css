@@ -8,17 +8,16 @@
 
 :root{
     --negro:#000000;
-    --morado-neon: rgb(231, 81, 231);
+    --morado-neon: rgb(247, 0, 255);
 }
 
 body{
-    background-image: url(https://inforprintsantander.es/wp-content/uploads/2016/05/Fondo-oscuro-web-inforprint-santander.png);
-}
+    background-color: rgb(44, 44, 44);}
 
 /*TOPBAR1*/
 
 .contenedor__topbar1{
-    background-color: #161616;
+    background-color: #272727;
     height: 15vh;
     width: 100%;
     display: flex;
@@ -32,14 +31,15 @@ body{
 
 .logo_topbar1{
     margin: 20PX;
-    height: 80px;
-    width: 60px;
+    height: 100px;
+    width: 100px;
 }
 
 .contenedor__topbar1-buscador{
-    background-color: rgb(34, 34, 34);
+    background-color: rgb(53, 53, 53);
     padding: 1vh 2vw;
-    flex-grow: 5;
+    flex-grow: 4;
+    border-radius: 20px;
     margin: 0 4vw;
     display: flex;
 }
@@ -47,15 +47,15 @@ body{
 .buscador-topbar1{
     background-color: transparent;
     height: 3vh;
-    width: 50vw;
+    width: 40vw;
     margin: 1vh 1vw;
     border: none;
-    color: var(--morado-neon);
+    color: white;
     flex-grow:9;
 }
 
 .buscador-topbar1::placeholder{
-    color: var(--morado-neon);
+    color: white;
     text-align: center;
 }
 
@@ -65,36 +65,46 @@ body{
     cursor: pointer;
     background-color: transparent;
     border: none;
-    color: var(--morado-neon);
+    color: white;
     flex-grow: 1;
 }
+
+
 
 .contenedor__topbar1-item{
     flex-grow: 2;
     display: flex;
+
 }
 
 .button-perfil{
-    font-size: 25px;
+    font-size: 20px;
     flex-grow: 1;
-    margin: 0 0.4vw;
-    padding: 0 1vw;
+    padding: 0 1vw 0 0;
     cursor: pointer;
     color: var(--morado-neon);
     background-color: transparent;
     border: none;
+    margin: 0 4vw;
 }
 
-.button-carrito{
-    font-size: 25px;
-    flex-grow: 1;
-    margin: 0 0.4vw;
-    padding: 0 1vw;
-    cursor: pointer;
-    color: var(--morado-neon);
-    background-color: transparent;
-    border: none;
+/*boton registro login          -----------------reparar--------------*/
+
+.boton_personalizado{
+    display: none;
+    position: relative;
+    margin: -100px 0 0 0;
+    text-decoration: none;
+    padding: 10px;
+    font-weight: 600;
+    font-size: 20px;
+    color: #ffffff;
+    background-color: #1883ba;
+    border-radius: 6px;
+    border: 2px solid #0016b0;
+    z-index: 1000;
 }
+
 
     /*FOCUSTOPBAR1*/
 
@@ -102,7 +112,15 @@ body{
         outline: none;
         }
 
+    .buscador-logo-topbar1:focus{
+        outline: none;
+        color: var(--morado-neon);
+    }
 
+    .button-perfil:focus{
+        outline: none;
+        color: rgba(255, 0, 191, 0.856);
+    }
 
 /*RESPONSIVE*/
 
@@ -112,5 +130,9 @@ body{
 
     .contenedor__topbar1-logo{
         display:none;
-         }
+    }
+
+    .contenedor__topbar1-item{
+        display: inline-block;
+    }
 }

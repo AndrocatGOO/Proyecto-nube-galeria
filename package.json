@@ -4,7 +4,7 @@
   "description": "base para una galeria en la nube",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/views/index.js"
   },
   "repository": {
     "type": "git",

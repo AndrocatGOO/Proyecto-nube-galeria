@@ -1,7 +1,6 @@
 const express =require('express');
 const app = express();                              //inicia servidor
 const path = require("path");                        //evitar errores de rutas de directorios
-
 //iniciar
 
 
@@ -30,3 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));  //acceso a los estilos
 app.listen(app.get("port"),() =>{                       //mensaje por consola en que puerto se ejecuta
     console.log("server en puerto ",app.get("port"))
 });
+
+//server
+
+

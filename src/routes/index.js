@@ -23,12 +23,21 @@ router.get("/login",(req, res)=>{                      //redirigir al logeo
     res.render("login");
 })
 
-router.get("/galery",(req, res)=>{                      //redirigir al galery
-    res.render("galery");
+router.get("/gallery",(req, res)=>{                      //redirigir al galery
+    res.render("gallery");
 })
 
 router.get("/profile",(req, res)=>{                      //redirigir al profile
     res.render("profile");
+})
+
+router.get("/terms",(req, res)=>{                      //redirigir a los terminos y condiciones
+    res.render("terms");
+})
+
+
+router.get("/admin",(req, res)=>{                      //redirigir al panel del admin, soolo admins
+    res.render("admin");
 })
 
 

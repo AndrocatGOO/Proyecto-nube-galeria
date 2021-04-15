@@ -9,6 +9,9 @@ CREATE TABLE user(
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
 );
 
+alter TABLE user
+    add nick varchar(25) NOT NULL;
+
 create TABLE profile(
     user_id int,
     image varchar(255),

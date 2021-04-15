@@ -1,18 +1,17 @@
+const mysql = require("mysql");
 const express =require('express');
-
 const path = require("path");                        //evitar errores de rutas de directorios
 const morgan = require("morgan");                     //muestra peticiones del servidor en consola
+
+//iniciar
 
 const app = express();                              //inicia servidor
 
 
-
-//iniciar
-
 //settings
 
 app.set("views", path.join(__dirname + "/views"));//cambiar ruta views
-app.set("port",3000);                           //crear variable que se pueda cambiar para puerto
+app.set("port", process.env.PORT || 3000);                           //crear variable que se pueda cambiar para puerto
 app.set("view engine", "ejs");                  //motor de plantilla que utilizo (ejs)
 app.engine("html", require("ejs").renderFile);  //usar html como ejs
 app.use(express.urlencoded({extend:true}));             //visualizar tipo de datos coon lenguaje latinoamericano
@@ -36,7 +35,8 @@ app.use(express.json());
 
 app.use(require('./routes/index'));              //ir al archivo de rutas
 app.use(require('./routes/autentication'));
-app.use("/links", require('./routes/links'));
+app.use("/postimg", require('./routes/postimg'));
+
 
 //GLOBAL VARIABLES
 

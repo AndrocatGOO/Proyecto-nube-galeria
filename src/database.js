@@ -1,6 +1,6 @@
 const mysql = require("mysql");
-const {promisify}=require ("util");
-const {database}=require ("./keys");
+const { promisify }=require ("util");
+const { database }=require ("./keys");
 const pool = mysql.createPool(database);
 
 pool.getConnection=((err,connection) =>{
@@ -22,4 +22,17 @@ pool.getConnection=((err,connection) =>{
 
 pool.query= promisify(pool.query);   //convirtiendo a promesas callbacks
 
-module.exports=pool;
+module.exports= pool;
+
+
+/*let con =mysql.createConnection({
+    host: "localhost",
+    user:"root",
+    password:"1417",
+    database:"androgallery"
+});
+con.connect();
+con.query("select * from user", (err, res, campos) =>{
+    console.log(res);
+});
+con.end(); */

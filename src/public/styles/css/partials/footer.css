@@ -1,0 +1,140 @@
+.bg-grey {
+    background: #272727;
+    box-shadow: 0px -3px 5px rgba(255, 0, 255,.5);
+}
+
+.logo-footer {
+    margin-bottom: 40px;
+}
+
+footer {
+    color: white;
+}
+
+footer p, a {
+    font-size: 12px;
+    font-family: 'Roboto', sans-serif;
+}
+
+footer h6 {
+    margin-bottom: 40px;
+    position: relative;
+}
+
+footer h6:after {
+    position: absolute;
+    content: "";
+    background: rgb(255, 0, 255);
+    width: 12%;
+    height: 1px;
+    left: 0;
+    bottom: -20px;
+}
+
+.btn-footer {
+    color: rgb(255, 0, 255);
+    text-decoration: none;
+    border: 1px solid;
+    border-radius: 43px;
+    font-size: 13px;
+    padding: 7px 30px;
+    line-height: 47px;
+}
+
+.btn-footer:hover {
+    text-decoration: none;
+}
+
+.form-footer input[type="text"] {
+    border: none;
+    color: white;
+    background-color: rgb(53, 53, 53);
+    border-radius: 5px;
+    outline: none;
+    padding-left: 10px;
+}
+
+.form-footer input::placeholder {
+    color: white;
+    padding-left: 10px;
+}
+
+.form-footer input[type="button"] {
+    border: none;
+    background:#232323;
+    margin-left: -5px;
+    color: #fff;
+    outline: none;
+    border-radius: 0 16px 16px 0;
+    padding: 2px 12px;
+}
+
+.search_foodbar_button:focus{
+    outline: none;
+}
+
+.search_foodbar_button:hover{
+    cursor: pointer;
+    color: #ff00ff;
+}
+
+.social .fa {
+    color: white;
+    font-size: 22px;
+    padding: 10px 15px;
+    background: #3c3c3c;
+}
+
+
+
+footer ul li {
+    list-style: none;
+    display: block;
+}
+
+footer ul  {
+    padding-left: 0;
+}
+
+footer ul  li a{
+    text-decoration: none;
+    color: rgb(255, 240, 253);
+    text-decoration:none;
+}
+
+a:hover {
+    text-decoration: none;
+    color: #ff00ff !important;
+}
+
+.logo-part {
+    border-right: 1px solid rgb(255, 0, 255);
+    height: 100%;
+}
+
+.search_foodbar_button{
+    background-color: transparent;
+    border: none;
+    color: rgb(255, 255, 255);
+}
+
+.social a i:hover{
+    color: #ff00ff;
+    background-color: rgb(53, 53, 53);
+}
+
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 650px){
+
+    /*foodbar*/
+
+    .logo-part{
+        border-right: none;
+    }
+
+}
+
+
+

@@ -1,18 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset='utf-8'>
-    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
-    <title>AndroGallery</title>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
-    <!--FONTS-->
-    <script src="https://kit.fontawesome.com/e76a5c10f6.js" crossorigin="anonymous"></script>
-    <!--NORMALIZE-->
-    <link rel="stylesheet" href="styles/css/normalize.css">
-    <!--TIPOGRAFIA-->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <%- include('./partials/head'); %>
+    <title>Profile</title>
     <!--ESTILOS-->
     <link rel="stylesheet" href="styles/css/profile.css">
     <script src="styles/js/styleprofile.js"></script>
@@ -20,28 +10,6 @@
     <script src="scripts/profile.js"></script>
 </head>
 <body>
-    <header>
-        <nav>
-            <div class="contenedor__topbar1">
-                <div class="contenedor__topbar1-logo">
-                    <a href="/home">
-                        <img class="logo_topbar1" src="img/logo_100px.png">
-                    </a>
-                </div>
-                <div class="contenedor__topbar1-buscador">
-                    <input class="buscador-topbar1" placeholder="Buscar Imagenes">
-                    <button class="buscador-logo-topbar1" href="#">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </div>
-            </div>
-
-            <div class="contenedor__topbar2">
-            </div>
-            <div class="contenedor__responsive">
-
-            </div>
-        </nav>
-    </header>
+    <%- include('./partials/header'); %>
 </body>
 </html>

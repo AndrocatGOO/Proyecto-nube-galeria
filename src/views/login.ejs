@@ -59,12 +59,12 @@
             </div>
 <!--Formulario de login y registro asd-->
             <div class="contenedor__login-register">
-                <form action="login.html" method="POST" class="formulario__register" >
+                <form action="/frminsertar" method="POST" class="formulario__register" >
                     <h2>Registrarse</h2>
-                    <input type="text" id="Usuario" name="Usuario"  placeholder="Usuario" class="input-48">
-                    <input type="text" id="correo" name="correo" placeholder="Correo Electronico" class="input-100" >
-                    <input type="password" id="contraseña" name="contraseña" placeholder="Contraseña" class="input-48" >
-                    <input type="password" id="confirmar_contra" name="confirmar_contra" placeholder="Repite la Contraseña" class="input-48">
+                    <input type="text" id="nick" name="nick"  placeholder="Nick" class="input-48">
+                    <input type="text" id="email" name="email" placeholder="Email" class="input-100" >
+                    <input type="password" id="password" name="password" placeholder="Contraseña" class="input-48" >
+                    <input type="password" id="confirmar_password" name="confirmar_password" placeholder="Repite la Contraseña" class="input-48">
                     <div class="caja-checkbox">
                         <div class="caja-checkbox-checkbox">
                             <input type="checkbox" name="confirmar_terms" class="checkbox_box">
@@ -74,7 +74,7 @@
                         </div>
                     </div>
                     <div class="button-register">
-                        <button>Registrarse</button>
+                        <button type="submit" name="BTNING">Registrarse</button>
                     </div>
                 </form>
                 <form action="" class="formulario__login">
@@ -86,6 +86,17 @@
                     </div>
                     <p >No te acuerdas de tu contraseña? <a style="color:rgb(255, 78, 225);" href="terms_conds.html"><br> click aqui</a></p>  <!--crear html para recuperar contraseña-->
                 </form>
+            </div>
+            <div>
+                <table border="1" class="table">
+                    <thead>
+                        <tr>
+                            <th>Nick</th>
+                            <th>Email</th>
+                            <th>Password</th>
+                        </tr>
+                    </thead>
+                </table>
             </div>
         </div>
     </main>

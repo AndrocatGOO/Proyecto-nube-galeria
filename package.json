@@ -4,7 +4,7 @@
   "description": "base para una galeria en la nube",
   "main": "index.js",
   "scripts": {
-    "Start":"node src/index.js",
+    "Start": "node src/index.js",
     "dev": "nodemon src/index.js"
   },
   "repository": {
@@ -31,6 +31,7 @@
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
+    "path": "^0.12.7",
     "timeagojs": "^1.0.0"
   },
   "devDependencies": {

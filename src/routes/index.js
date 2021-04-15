@@ -1,10 +1,22 @@
 const express = require("express");
 const router = express.Router();
 
-//ROUTES RUTAS
 
-router.get("/home",(req, res)=>{                      //redirigir al inicio de la web
+
+console.log("pasando por rutas");
+
+//ROUTES RUTAS html
+
+router.get("/",(req, res)=>{                      //redirigir al inicio de la web
     res.render("index");                         //en ves de usar   res.sendFile(path.join(__dirname + "/views/index.html"));   se usa esto para archivos ejs
+})
+
+router.get("/index",(req, res)=>{                      //redirigir al inicio de la web
+    res.render("index");                         //en ves de usar   res.sendFile(path.join(__dirname + "/views/index.html"));   se usa esto para archivos ejs
+})
+
+router.get("/home",(req, res)=>{                      //redirigir al inicio de la galeria
+    res.render("home");
 })
 
 router.get("/login",(req, res)=>{                      //redirigir al logeo

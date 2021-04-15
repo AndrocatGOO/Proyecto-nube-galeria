@@ -1,24 +1,48 @@
 const express =require('express');
-const app = express();                              //inicia servidor
+
 const path = require("path");                        //evitar errores de rutas de directorios
+const morgan = require("morgan");                     //muestra peticiones del servidor en consola
+
+const app = express();                              //inicia servidor
+
+
+
 //iniciar
-
-
 
 //settings
 
-app.set("views", path.join(__dirname + "/views"));
+app.set("views", path.join(__dirname + "/views"));//cambiar ruta views
 app.set("port",3000);                           //crear variable que se pueda cambiar para puerto
-app.engine("html", require("ejs").renderFile);  //usar html
-app.set("view engine", "ejs");                  //motor de plantilla que utilizo
+app.set("view engine", "ejs");                  //motor de plantilla que utilizo (ejs)
+app.engine("html", require("ejs").renderFile);  //usar html como ejs
+app.use(express.urlencoded({extend:true}));             //visualizar tipo de datos coon lenguaje latinoamericano
+                /*app.engine(".hbs",exphbs({
+                    defaultlayout:"main",
+                    layoutsDir: path.join(app.get("views"),"layouts"),
+                    partialDir: path.join(app.get("views"),"partials")
+                    extname:".hbs",
+                    helpers: require("./lib/handlebars")
+                }));
+
+                app.set("view engine". ".hbs");*/
 
 //MIDDLEWARES PRETICIONES PUBLICAS
 
+app.use(morgan("dev"));      //se ejecute auto cada que hago cambios
+app.use(express.urlencoded({extended: false}))   ;
+app.use(express.json());
+
 //routes
 
-app.use(require('./routes/index'));
+app.use(require('./routes/index'));              //ir al archivo de rutas
+app.use(require('./routes/autentication'));
+app.use("/links", require('./routes/links'));
 
 //GLOBAL VARIABLES
+
+app.use((req,res,next)=>{
+    next();
+});
 
 //PUBLIC  static files
 
@@ -31,5 +55,13 @@ app.listen(app.get("port"),() =>{                       //mensaje por consola en
 });
 
 //server
+
+app.use((err,req,res,next)=>{           //mostrar mensajes error
+res.send({err:err.messamge});
+});
+
+
+
+
 
 

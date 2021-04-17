@@ -1,1 +1,44 @@
-formulario
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head'); %>
+    <title>main</title>
+    <!--ESTILOS-->
+    <link rel="stylesheet" href='../styles/css/postimg/add.css'>
+    <!--SCRIPT-->
+</head>
+    <body class="body">
+        <%- include('../partials/header'); %>
+        <main>
+            <div class="container p-4">
+                <div class="row">
+                    <div class="col-md-4 mx-auto">
+                        <div class="card bg-dark">
+                            <div class="card-body">
+                                <h1 class="text-light mb-3 h4">Subir Tu Imagen</h1>
+                                <form action="/postimg/add" method="POST">
+                                    <div class="form-group">
+                                        <input type="text" name="title" class="form-control bg-dark text-light" placeholder="Titulo" autofocus>
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="url" name="src" class="form-control bg-dark text-light" placeholder="Imagen">
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="descripcion" rows="2" class="form-control bg-dark text-light" placeholder="Descripcion"></textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="btn btn-success btn-block">
+                                            Subir
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <%- include('../partials/footer'); %>
+    </body>
+</html>
+

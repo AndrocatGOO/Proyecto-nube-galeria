@@ -1,0 +1,20 @@
+.body{
+    background-color: rgb(36, 36, 36);
+}
+
+.contenedor_terms{
+    margin: 3vh 5vw 3vh 5vw;
+    background-color: rgb(36, 36, 36);
+    border-radius: 10px;
+    border: solid 2px rgb(255, 0, 255);
+}
+
+.title{
+    color: rgb(255, 0, 255);
+    text-align: center;
+    margin: 10px;
+}
+
+.terminos{
+    color: white;
+}

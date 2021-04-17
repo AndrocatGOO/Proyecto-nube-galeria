@@ -1,12 +1,10 @@
-module.exports={
+/*module.exports={
     database:{
         host:"localhost",
         user:"root",
         password:"1417",
-        database:"androgallery"
+        database:"text"
     }
 };
+*/
 
-
-
-console.log("conectando a basededatos");

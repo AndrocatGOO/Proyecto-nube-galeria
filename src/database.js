@@ -1,7 +1,14 @@
 const mysql = require("mysql");
 const { promisify }=require ("util");
-const { database }=require ("./keys");
-const pool = mysql.createPool(database);
+//const { database }=require ("./keys");
+const pool = mysql.createPool({
+    database:{
+        host:"localhost",
+        user:"root",
+        password:"1417",
+        database:"test"
+    }
+});
 
 pool.getConnection=((err,connection) =>{
     if (err){
@@ -14,9 +21,12 @@ pool.getConnection=((err,connection) =>{
         if (err.code === "ECONNREFUSED"){
             console.error("LA CONEXION SE PERDIO");
         }
+        if(err){
+            console.log(err);
+        }
     }
     if (connection) connection.relase()
-        console.log("DABASE CONECTADA");
+        console.log("DATABASE CONECTADA");
         return;
 })
 

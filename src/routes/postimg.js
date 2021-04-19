@@ -1,82 +1,64 @@
 const express = require("express");
 const { query } = require("../database");
 const router = express.Router();
-
 const pool = require("../database");
 
+const { format } = require("timeago.js");
+const { Router } = require("express");
+
+
+//obtener ruta y enviar a subir img
 router.get("/add",(req, res)=>{
     res.render("postimg/add.ejs");
 });
 
-router.post("/add", (req, res)=>{
+
+//subir imagenes a db
+router.post("/add", async (req, res)=>{
     const {title, src, descripcion} =req.body;
     const newimg={
         title,
         src,
         descripcion
     };
-    pool.getConnection(function(err, connection) {
-        if (err) throw err; // not connected!
-        // Use the connection
-        connection.query(`INSERT INTO post (src, title, descripcion) values ('${src}','${title}','${descripcion}');`, function (error, results, fields) {
-          // When done with the connection, release it.
-        connection.release();
-          // Handle error after the release.
-        if (error) throw error;
-          // Don't use the connection here, it has been returned to the pool.
-        });
-    res.send("recibido");
+    await pool.query(`INSERT INTO post (src, title, descripcion) values ('${src}','${title}','${descripcion}');`,(err,resultado,fields)=>{
+        if(err)throw err;
+        res.redirect("/postimg");
+    })
 });
-    }
-);
-
-pool.end(()=>{console.log("Closed")})
 
 
+//obtener y redirecionar ruta a galeria
+router.get("/", async(req,res)=>{
+    const imgs = await pool.query(`SELECT * FROM post;`);
+    res.render("postimg",{imgs});
+});
+
+router.get("/delete/:id",async (req,res)=>{
+    const {id} = req.params;
+    await pool.query(`DELETE FROM post WHERE id ='${id}';`);
+    res.redirect("/postimg");
+});
+
+router.get("/edit/:id",async (req,res)=>{
+    const {id} = req.params;
+    const aid = id;
+    const imgs = await pool.query(`SELECT * FROM post WHERE id='${id}';`);
+    res.render("postimg/editimg.ejs",{imgs:imgs[0],aid:aid});
+});
 
 
-
-
-
-
-//const data = await pool.query("");
-//console.log(data);
-
-
-/*pool.query(`INSERT INTO post (src, title, descripcion) values ('${src}','${title}','${descripcion}');`,(err,resutlt)=>{
-    console.log(result);
-    });
-
-router.post("/add", (req, res)=>{
-    const {title, src, descripcion} =req.body;
-    const newimg={
+router.post("/edit/:id", async(req,res)=>{
+    const {id} = req.params;
+    const { title, src, descripcion } = req.body;
+    const newimg ={
         title,
-        src,
-        descripcion
+        descripcion,
+        src
     };
-    pool.query(`INSERT INTO post (src, title, descripcion) values ('${src}','${title}','${descripcion}');`,(err,resutlt)=>{
-        if(err){
-            console.log(err);
-        }
-    console.log(resutlt);
-    }
-)});*/
-
-
-    /*await pool.query(`INSERT INTO post (src, title, descripcion) values ('${src}','${title}','${descripcion}');`);
+    await pool.query(` update post set title='${title}', src='${src}', descripcion='${descripcion}' where id= ${id} ; `);
     console.log(newimg);
-    res.send("Recibido");
-});*/
-/*
-    const data =pool.query("select * from user");
-    console.log(data);
-    pool.query("INSERT INTO asd set ?",[newimg]);
-    console.log(newimg);
-    res.send("recibido");
-
-});*/
-
-
-
+    res.redirect("/postimg");
+});
 
 module.exports = router;

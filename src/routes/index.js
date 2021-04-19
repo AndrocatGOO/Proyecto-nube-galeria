@@ -10,7 +10,7 @@ console.log("pasando por rutas");
 router.get("/",(req, res)=>{                      //redirigir al inicio de la web
     res.render("index");                         //en ves de usar   res.sendFile(path.join(__dirname + "/views/index.html"));   se usa esto para archivos ejs
 })
-
+/*
 router.get("/index",(req, res)=>{                      //redirigir al inicio de la web
     res.render("index");                         //en ves de usar   res.sendFile(path.join(__dirname + "/views/index.html"));   se usa esto para archivos ejs
 })
@@ -19,9 +19,6 @@ router.get("/home",(req, res)=>{                      //redirigir al inicio de l
     res.render("home");
 })
 
-router.get("/login",(req, res)=>{                      //redirigir al logeo
-    res.render("login");
-})
 
 router.get("/gallery",(req, res)=>{                      //redirigir al galery
     res.render("gallery");
@@ -39,7 +36,7 @@ router.get("/terms",(req, res)=>{                      //redirigir a los termino
 router.get("/admin",(req, res)=>{                      //redirigir al panel del admin, soolo admins
     res.render("admin");
 })
-
+*/
 
 
 module.exports = router;

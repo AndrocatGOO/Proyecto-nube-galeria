@@ -41,3 +41,6 @@ create TABLE post(
 
 
 insert into user (nick, email, password) values ("prueba","asd@asd.com","123asd");
+
+--
+INSERT INTO post (src, title, descripcion) 

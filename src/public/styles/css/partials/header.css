@@ -77,7 +77,6 @@
 /*boton registro login          -----------------reparar--------------*/
 
 .boton_personalizado{
-    display: none;
     position: relative;
     margin: -100px 0 0 0;
     text-decoration: none;

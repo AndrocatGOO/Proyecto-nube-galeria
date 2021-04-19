@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "Start": "node src/index.js",
-    "dev": "nodemon src/index.js"
+    "dev": "nodemon src/index.js",
+    "test": "nodemon src/pruebas/script.js"
   },
   "repository": {
     "type": "git",
@@ -32,6 +33,7 @@
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
+    "timeago.js": "^4.0.2",
     "timeagojs": "^1.0.0"
   },
   "devDependencies": {

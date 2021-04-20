@@ -1,31 +1,33 @@
 const express = require("express");
 const router = express.Router();
-const passport = require("passport")
+const passport = require("passport")                    //LOGEO FRAMEWORK
+const { isLoggedIn,isNotLoggedIn } = require('../lib/auth');                  //
 
-router.get("/signup",(req,res)=>{
+
+
+//!!!!!!!!!!!!     REGISTRAR     !!!!!!!!!!!!
+
+router.get("/signup",isNotLoggedIn,(req,res)=>{
     res.render("signup");
 });
 
-router.post("/signup", passport.authenticate("local.signup",{
+
+router.post("/signup",isNotLoggedIn, passport.authenticate("local.signup",{
     successRedirect:"/profile",
     failureRedirect:"/signin"
-}))
+}));
 
-router.get("/signin",(req,res)=>{
+
+
+//!!!!!!!!!!!!     INGRESAR     !!!!!!!!!!!!
+
+router.get("/signin",isNotLoggedIn,(req,res)=>{
     res.render("signup")
-})
-
-router.post("/signin", passport.authenticate("local.signup",{
-    successRedirect:"/profile",
-    failureRedirect:"/signup"
-}))
+    console.log("renderisando login desde signin");
+});
 
 
-
-
-
-
-router.post("/signin", (req,res,next)=>{
+router.post("/signin", isNotLoggedIn,(req,res,next)=>{
     passport.authenticate("local.signin",{
         successRedirect:"/profile",
         failureRedirect:"/signin"
@@ -35,13 +37,11 @@ router.post("/signin", (req,res,next)=>{
 
 
 
-router.get("/profile",(req,res)=>{
-    res.render("profile");
-})
+//!!!!!!!!!!!!     DESLOGEO     !!!!!!!!!!!!
 
-router.get('/logout', function(req, res){
+router.get('/logout',isLoggedIn, (req, res)=>{
     req.logOut();
-    res.redirect('/');
+    res.redirect('/index');
 });
 
 

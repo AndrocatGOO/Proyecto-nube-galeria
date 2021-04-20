@@ -50,25 +50,27 @@ app.use(express.json());
 app.use(flash());
 
 
-app.use(passport.initialize());
-app.use(passport.session());
+app.use(passport.initialize());                 //iniciar el modulo passport
+app.use(passport.session());                    //guardar sesion
 
 //routes
 
 app.use(require('./routes/index'));              //ir al archivo de rutas
 app.use(require('./routes/autentication'));
-app.use("/postimg", require('./routes/postimg'));
+app.use("/profile", require('./routes/profile'));
 
 
 
 //GLOBAL VARIABLES
 
 app.use((err,req,res,next)=>{
+    console.error(err.stack);
     res.send({err:err.message});
     app.locals.hecho = req.flash("hecho");
     app.locals.user= req.user;
     next();
 });
+
 
 
 

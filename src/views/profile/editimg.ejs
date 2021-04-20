@@ -2,7 +2,7 @@
 <html>
 <head>
     <%- include('../partials/head'); %>
-    <title>main</title>
+    <title>Edit</title>
     <!--ESTILOS-->
     <link rel="stylesheet" href='../styles/css/postimg/add.css'>
     <!--SCRIPT-->
@@ -15,20 +15,17 @@
                     <div class="col-md-4 mx-auto">
                         <div class="card bg-dark">
                             <div class="card-body">
-                                <h1 class="text-light mb-3 h4">Subir Tu Imagen</h1>
-                                <form action="/postimg/add" method="POST">
+                                <h1 class="text-light mb-3 h4">Editar Imagen</h1>
+                                <form action="/profile/edit/<%= aid %>" method="POST">
                                     <div class="form-group">
-                                        <input type="text" name="title" class="form-control bg-dark text-light" placeholder="Titulo" autofocus>
+                                        <input type="text" value="<%= imgs.title %>" name="title" class="form-control bg-dark text-light" placeholder="Titulo" autofocus>
                                     </div>
                                     <div class="form-group">
-                                        <input type="url" name="src" class="form-control bg-dark text-light" placeholder="Imagen">
-                                    </div>
-                                    <div class="form-group">
-                                        <textarea name="descripcion" rows="2" class="form-control bg-dark text-light" placeholder="Descripcion"></textarea>
+                                        <textarea name="descripcion"  rows="2" class="form-control bg-dark text-light" placeholder="Descripcion"><%= imgs.descripcion %></textarea>
                                     </div>
                                     <div class="form-group">
                                         <button class="btn btn-success btn-block">
-                                            Subir
+                                            Guardar
                                         </button>
                                     </div>
                                 </form>

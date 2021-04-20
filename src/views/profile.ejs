@@ -1,19 +1,43 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <%- include('./partials/head'); %>
-        <title>Profile</title>
-        <!--ESTILOS-->
-        <link rel="stylesheet" href="styles/css/profile.css">
-        <script src="styles/js/styleprofile.js"></script>
-        <!--SCRIPT-->
-        <script src="scripts/profile.js"></script>
-    </head>
-    <body>
+<head>
+    <%- include('./partials/head'); %>
+    <title>gallery</title>
+    <!--ESTILOS-->
+    <link rel="stylesheet" href='styles/css/gallery.css'>
+    <!--SCRIPT-->
+    <script src="../../node_modules/timeago.js/dist/timeago.full.min.js" type="text/javascript"></script>
+</head>
+    <body class="body">
         <%- include('./partials/header'); %>
         <main>
-            <div>
-                Bienvenido 
+            <div class="card card-body text-center">
+                perfil
+            </div>
+            <div class="col-md-4 mx-auto">
+                <div class="card card-body text-center">
+                    <p>Sube tus imagenes!</p>
+                    <a href="/profile/add">    AQUI!</a>
+                </div>
+            </div>
+            <div class="container_imgs">
+                <% imgs.forEach(function(imgs){ %>
+                <div class="container_img">
+                    <div class="card-body">
+                        <a href="#" target="_blank">
+                            <h3 class="card-title text-uppercase">
+                                <%= imgs.title %>
+                            </h3>
+                        </a>
+                        <p class="m-2">
+                            <%= imgs.descripcion %>
+                        </p>
+                        <p> <%= imgs.created_at  %> </p>
+                        <a href="profile/delete/<%= imgs.id %>" class="btn btn-danger">Eliminar</a>
+                        <a href="profile/edit/<%= imgs.id %>" class="btn btn-secondary">Editar</a>
+                    </div>
+                </div>
+                <% }) %>
             </div>
         </main>
         <%- include('./partials/footer'); %>

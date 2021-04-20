@@ -1,5 +1,6 @@
-const helpers={};
 const bcrypt = require('bcryptjs');
+const helpers={};
+
 
 helpers.encryptPassword =async (password)=>{
     const salt = await bcrypt.genSalt(10);
@@ -15,4 +16,4 @@ helpers.mathPassword = async (password, savedPassword)=>{
     }
 };
 
-module.exports= helpers;
+module.exports = helpers;

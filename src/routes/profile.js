@@ -8,7 +8,7 @@ const cloudinary = require('cloudinary');
 
 const { format } = require("timeago.js");
 const { Router } = require("express");
-const fsn = require('fs');
+const fsn = require('fs-extra');
 
 
 

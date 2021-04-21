@@ -12,11 +12,7 @@ passport.use("local.signin", new LocalStrategy({
     passwordField:"password",
     passReqToCallback: true
 },async(req,username,password, done)=>{
-    console.log(req.body);
-    console.log("username:"+username);
-    console.log("password:"+password);
     const rows = await pool.query(`SELECT * FROM user WHERE username='${username}';`);
-    console.log(rows[0]);
     if (rows.length > 0){
         const user = rows[0];
         const validPassword = await helpers.mathPassword(password, user.password);
@@ -65,7 +61,6 @@ passport.serializeUser((user, done)=>{
 
 passport.deserializeUser(async(id, done)=>{
     const rows = await pool.query(`SELECT * FROM user WHERE id='${id}';`);
-    console.log(rows[0]);
     done(null, rows[0]);
 
 })

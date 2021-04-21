@@ -4,8 +4,8 @@
   "description": "base para una galeria en la nube",
   "main": "index.js",
   "scripts": {
-    "Start": "node src/index.js",
-    "dev": "nodemon src/index.js",
+    "Start": "cross-env NODE_ENV=production node src/index.js",
+    "dev": "cross-env NODE_ENV=develoment nodemon src/index.js",
     "test": "nodemon src/pruebas/script.js"
   },
   "repository": {
@@ -21,20 +21,24 @@
   "homepage": "https://github.com/AndrocatGOO/Proyecto-nube-galeria#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "cloudinary": "^1.25.1",
     "connect-flash": "^0.1.1",
+    "cross-env": "^7.0.3",
+    "dotenv": "^8.2.0",
     "ejs": "^3.1.6",
     "express": "^4.17.1",
     "express-handlebars": "^5.3.0",
     "express-mysql-session": "^2.1.5",
     "express-session": "^1.17.1",
     "express-validator": "^6.10.0",
+    "fs-extra": "^9.1.0",
     "morgan": "^1.10.0",
+    "multer": "^1.4.2",
     "mysql": "^2.18.1",
     "passport": "^0.4.1",
     "passport-local": "^1.0.0",
     "path": "^0.12.7",
-    "timeago.js": "^4.0.2",
-    "timeagojs": "^1.0.0"
+    "timeago.js": "^4.0.2"
   },
   "devDependencies": {
     "nodemon": "^2.0.7"

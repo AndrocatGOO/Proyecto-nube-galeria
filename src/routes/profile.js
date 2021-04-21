@@ -4,8 +4,12 @@ const router = express.Router();
 const pool = require("../database");
 const { isLoggedIn,isNotLoggedIn } = require('../lib/auth');
 
+const cloudinary = require('cloudinary');
+
 const { format } = require("timeago.js");
 const { Router } = require("express");
+const fsn = require('fs');
+
 
 
 //obtener ruta y enviar a subir img
@@ -15,18 +19,23 @@ router.get("/add",isLoggedIn ,(req, res)=>{
 
 
 //subir imagenes a db
+
+
+
 router.post("/add",isLoggedIn , async (req, res)=>{
-    const {title, src, descripcion} =req.body;
+
+    console.log(req.body);
+    console.log(req.file);
     const user_id = req.user.id;
-    const newimg={
-        title,
-        src,
-        descripcion
-    };
-    await pool.query(`INSERT INTO post (src, title, descripcion,user_id) values ('${src}','${title}','${descripcion}','${user_id}');`,(err,resultado,fields)=>{
+    const{title,descripcion}=req.body;
+    const imgcloud = await cloudinary.v2.uploader.upload(req.file.path);
+    console.log(imgcloud);
+    const imageURL=imgcloud.url;
+    await pool.query(`INSERT INTO post (imageURL, title, descripcion,user_id) values ('${imageURL}','${title}','${descripcion}','${user_id}');`,(err,resultado,fields)=>{
         if(err)throw err;
-        res.redirect("/profile");
     })
+    await fsn.remove(req.file.path);
+    res.redirect("/profile");
 });
 
 
@@ -34,35 +43,56 @@ router.post("/add",isLoggedIn , async (req, res)=>{
 router.get("/",isLoggedIn , async (req,res)=>{
     const user_id = req.user.id;
     const img = await pool.query(`SELECT * FROM post WHERE user_id='${user_id}';`);
-    console.log("consulta    "+img);
     res.render("profile",{ imgs:img });
 });
 
 router.get("/delete/:id",isLoggedIn ,async (req,res)=>{
     const {id} = req.params;
-    await pool.query(`DELETE FROM post WHERE id ='${id}';`);
-    res.redirect("/profile");
+    const user_id = req.user.id;
+    const idConfirm = await pool.query(`SELECT * FROM post WHERE id='${id}';`);
+    const infoimg = idConfirm[0];
+    const user_img = infoimg.user_id;
+    if(user_id==user_img){
+        await pool.query(`DELETE FROM post WHERE id ='${id}';`);
+        res.redirect("/profile");
+    }else{
+        //hackers xd
+        res.redirect("/Terms");
+    }
 });
 
 router.get("/edit/:id",isLoggedIn ,async (req,res)=>{
     const {id} = req.params;
     const aid = id;
-    const imgs = await pool.query(`SELECT * FROM post WHERE id='${id}';`);
+
+    const user_id = req.user.id;
+    const idConfirm = await pool.query(`SELECT * FROM post WHERE id='${id}';`);
+    const infoimg = idConfirm[0];
+    const user_img = infoimg.user_id;
+    if (user_id==user_img){
+        const imgs = await pool.query(`SELECT * FROM post WHERE id='${id}';`);
     res.render("profile/editimg.ejs",{imgs:imgs[0],aid:aid});
+    }else{
+        console.log("hacker!xd");
+        res.redirect("/terms");
+    }
 });
 
 
 router.post("/edit/:id",isLoggedIn , async(req,res)=>{
     const {id} = req.params;
-    const { title, src, descripcion } = req.body;
-    const newimg ={
-        title,
-        descripcion,
-        src
-    };
-    await pool.query(` update post set title='${title}', src='${src}', descripcion='${descripcion}' where id= ${id} ; `);
-    console.log(newimg);
+    const { title, imageURL, descripcion } = req.body;
+    const user_id = req.user.id;
+    const idConfirm = await pool.query(`SELECT * FROM post WHERE id='${id}';`);
+    const infoimg = idConfirm[0];
+    const user_img = infoimg.user_id;
+    if (user_id==user_img){
+        await pool.query(` update post set title='${title}', imageURL='${imageURL}', descripcion='${descripcion}' where id= ${id} ; `);
     res.redirect("/profile");
+    }else{
+        console.log("hacker!xd");
+        res.redirect("/terms");
+    }
 });
 
 module.exports = router;

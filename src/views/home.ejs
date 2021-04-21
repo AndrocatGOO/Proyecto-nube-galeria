@@ -4,12 +4,30 @@
     <%- include('./partials/head'); %>
     <title>home</title>
     <!--ESTILOS-->
+    <!--animatecc-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="/styles/css/index.css"
     <!--SCRIPT-->
 </head>
     <body>
         <%- include('./partials/header'); %>
         <main>
-            asdasd
+            <div class="container p-4 contenedor_todo">
+                <div class="row">
+                    <div class="card-columns contenedor_imagenes">
+                        <% imgs.forEach(function(imgs){ %>
+                            <div class="card animated fadeInUp contenedor_imagen">
+                                <img src="<%= imgs.imageURL%> " class="card-img-top">
+                                <div class="card-body">
+                                    <h5 class="card-title"><%= imgs.title %></h5>
+                                    <p class="card-text"><%= imgs.descripcion %></p>
+                                    <p> <%= timeago(imgs.created_at)  %> </p>
+                                </div>
+                            </div>
+                        <% }) %>
+                    </div>
+                </div>
+            </div>
         </main>
         <%- include('./partials/footer'); %>
     </body>

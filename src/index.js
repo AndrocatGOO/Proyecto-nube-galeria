@@ -12,6 +12,7 @@ const passport = require('passport');                   //mantener session
 const multer = require('multer');                   //ayuda para subir imagenes
 const cloudinary = require('cloudinary');                   //servidor para guardar imagenes
 const fs = require('fs-extra');                 //ayuda a eliminar archivos sin tanto codigo
+const { format } = require('timeago.js');                 //ayuda a convertir el tiempo
 
 
 
@@ -100,6 +101,7 @@ app.use((err,req,res,next)=>{
     res.send({err:err.message});
     app.locals.hecho = req.flash("hecho");
     app.locals.user= req.user;
+    app.locals.format = format;
     next();
 });
 

@@ -8,7 +8,7 @@ const cloudinary = require('cloudinary');
 
 const { format } = require("timeago.js");
 const { Router } = require("express");
-const fsn = require('fs');
+const fs = require('fs-extra');
 
 
 
@@ -34,7 +34,7 @@ router.post("/add",isLoggedIn , async (req, res)=>{
     await pool.query(`INSERT INTO post (imageURL, title, descripcion,user_id) values ('${imageURL}','${title}','${descripcion}','${user_id}');`,(err,resultado,fields)=>{
         if(err)throw err;
     })
-    await fsn.remove(req.file.path);
+    await fs.unlink(req.file.path);
     res.redirect("/profile");
 });
 

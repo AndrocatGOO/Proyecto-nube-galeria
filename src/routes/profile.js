@@ -31,10 +31,10 @@ router.post("/add",isLoggedIn , async (req, res)=>{
     const imgcloud = await cloudinary.v2.uploader.upload(req.file.path);
     console.log(imgcloud);
     const imageURL=imgcloud.url;
-    await pool.query(`INSERT INTO post (imageURL, title, descripcion,user_id) values ('${imageURL}','${title}','${descripcion}','${user_id}');`,(err,resultado,fields)=>{
-        if(err)throw err;
-    })
-    await fs.unlink(req.file.path);
+    await pool.query(`INSERT INTO post (imageURL, title, descripcion,user_id) values ('${imageURL}','${title}','${descripcion}','${user_id}');`);
+    ruta = req.file.path;
+    console.log("esta es la ruta: "+ruta);
+    await fs.unlink(ruta)
     res.redirect("/profile");
 });
 

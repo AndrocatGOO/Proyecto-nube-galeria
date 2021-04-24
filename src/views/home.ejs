@@ -4,26 +4,32 @@
     <%- include('./partials/head'); %>
     <title>home</title>
     <!--ESTILOS-->
+    <!--BOOTSTRAP-->
+    <link rel="stylesheet" href="https://bootswatch.com/4/litera/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <!--animatecc-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
-    <link rel="stylesheet" href="/styles/css/index.css"
+    <link rel="stylesheet" href="/styles/css/home.css">
     <!--SCRIPT-->
 </head>
     <body>
         <%- include('./partials/header'); %>
         <main>
-            <div class="container p-4 contenedor_todo">
+            <div class="contenedor_imagenes">
                 <div class="row">
-                    <div class="card-columns contenedor_imagenes">
-                        <% imgs.forEach(function(imgs){ %>
-                            <div class="card animated fadeInUp contenedor_imagen">
-                                <img src="<%= imgs.imageURL%> " class="card-img-top">
-                                <div class="card-body">
-                                    <h5 class="card-title"><%= imgs.title %></h5>
-                                    <p class="card-text"><%= imgs.descripcion %></p>
-                                    <p> <%= timeago(imgs.created_at)  %> </p>
-                                </div>
+                    <div class="card-columns">
+                        <% imgs.forEach(function (imgs) { %>
+                        <div class="card animated fadeInUp">
+                            <img src="<%= imgs.imageURL %>" class="card-img-top">
+                            <div class="container_user_img">
+                                <a class="redirect_user_img">
+                                    <img class="user_img" src="<%= imgs.image %> ">
+                                </a>
+                                <a>
+                                    <b><%= imgs.username %> </b>
+                                </a>
                             </div>
+                        </div>
                         <% }) %>
                     </div>
                 </div>

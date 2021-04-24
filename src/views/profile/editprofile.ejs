@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head'); %>
+    <title>main</title>
+    <!--ESTILOS-->
+    <link rel="stylesheet" href='http://localhost:3000/styles/css/postimg/editprofile.css'>
+    <!--SCRIPT-->
+</head>
+    <body>
+        <%- include('../partials/header'); %>
+        <main>
+            <div class="form-container">
+                <div class="container_header">
+                    <img class="header"  src="<%= datos.image_header %> ">
+                </div>
+                <div class="container_profile_img">
+                    <img class="profile_img" src="<%= datos.image %> ">
+                    <b>Para cambiar tu header o tu foto de perfil hazolo desde tu perfil</b>
+                </div>
+                <form action='/profile/editprofile/edit/<%= datos.user_id %>' class='form' method="POST">
+                    <p class='field UserName'>
+                        <label  ><%= datos.username %></label>
+                    </p>
+                    <p class='field '>
+                        <label class='label' for='age_of_birth'>Fecha de Nacimiento</label>
+                        <input class='text-input' id='age_of_birth' name='age_of_birth'  type='date' value="<%= datos.age_of_birth %>">
+                    </p>
+                    <p class='field '>
+                        <label class='label' for='gender'>Genero</label>
+                        <input class='text-input' id='gender' name='gender' maxlength="60" value="<%= datos.gender %>" >
+                    </p>
+                    <p class='field'>
+                        <label class='label' for='biografia'>Cuentanos sobre ti </label>
+                        <label class="letra_pequeña">(si cambias la biografia tu biografia anterior se perdera)</label>
+                        <textarea class='textarea' id='biografia' name='biografia'><%= datos.biografia %></textarea>
+                    </p>
+                    <p class='field'>
+                        <label class='label' for='public_web'>Sitio Web</label>
+                        <input type="link" class='textarea' id='public_web' name='public_web'  value="<%= datos.public_web %>"></input>
+                    </p>
+                    <button  class="btn btn-danger button ">
+                        Enviar
+                    </button>
+                </form>
+            </div>
+        </main>
+        <%- include('../partials/footer'); %>
+    </body>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="http://localhost:3000/styles/js/editprofile.js"></script>
+</html>

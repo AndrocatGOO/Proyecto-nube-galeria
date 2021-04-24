@@ -6,10 +6,25 @@
     <!--ESTILOS-->
     <link rel="stylesheet" href='styles/css/login.css'>
     <!--SCRIPT-->
-
+    
 </head>
 <body>
-    <%- include('./partials/header'); %>
+    <header>
+        <nav>
+            <div class="contenedor__topbar1">
+                <div class="contenedor__topbar1-logo">
+                    <a href="/home">
+                        <img class="logo_topbar1" src="/img/logo_texto_100px.png">
+                    </a>
+                </div>
+                <div class="contenedor__topbar2">
+                    <a href="/home">
+                        <img class="logo_topbar2" src="/img/logo_100px.png">
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </header>
     <main>
         <div class="contenedor__todo">
             <div class="caja__trasera">
@@ -40,9 +55,9 @@
                         <button type="submit" name="BTNING">Registrarse</button>
                     </div>
                 </form>
-                <form action="/signin" class="formulario__login" method="POST">
+                <form action="/signin" class="formulario__login" method="POST" >
                     <h2>Iniciar Sesion</h2>
-                    <input type="text" id="UserName" name="username"  placeholder="UserName" >
+                    <input type="text"     id="UserName" name="username" placeholder="UserName"    >
                     <input type="password" id="password" name="password" placeholder="Contraseña"  >
                     <div class="button-login">
                         <button >Entrar</button>
@@ -53,7 +68,7 @@
         </div>
     </main>
     <%- include('./partials/footer'); %>
-    <script src="styles/js/stylelogin.js"></script>
-</body>
 
+</body>
+<script src="styles/js/stylelogin.js"></script>
 </html>

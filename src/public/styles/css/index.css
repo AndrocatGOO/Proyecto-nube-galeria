@@ -6,23 +6,121 @@
     font-family: 'Roboto', sans-serif;
 }
 
+body {
+    font-size: 14px;
+    color: rgb(255, 255, 255);
+    margin: 0;
+    padding: 0;
+    background-color: rgb(0, 0, 0) ;
+}
+
 :root{
     --negro:#000000;
     --morado-neon: rgb(247, 0, 255);
 }
 
-body{
-    background-color: rgb(44, 44, 44);
-}
-.contenedor_imagenes{
+/*topbar*/
+
+.contenedor__topbar1{
+    background-color: rgb(15, 15, 15);
+    height: 12vh;
+    width: 100%;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    
+    align-items: center;
+    justify-content: space-around;
+    box-shadow: 0px 3px 5px rgb(255, 0, 255);
 }
 
-.contenedor_imagen{
-    width: 18vw;
-    height: auto;
-    margin: 5px;
+.contenedor__topbar1-logo{
+    flex-grow: 5;
+    box-sizing: border-box;
+}
+
+.logo_topbar1{
+    box-sizing: border-box;
+    cursor: pointer;
+    height: 10vh;
+    width:450px;
+}
+
+
+
+.logo_topbar2{
+    display:none;
+}
+
+
+
+.btn-login {
+    box-sizing: border-box;
+    background-color: transparent;
+    border: 2px solid var(--morado-neon);
+    border-radius: 0.6em;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1;
+    margin: 20px;
+    padding: 1.2em 2.8em;
+    text-decoration: none;
+    text-align: center;
+    font-weight: 700;
+    box-sizing: border-box;
+    outline: none;
+    background-color: transparent;
+    box-shadow: 0 0 40px 40px var(--morado-neon) inset, 0 0 0 0 var(--morado-neon);
+    -webkit-transition: all 150ms ease-in-out;
+    transition: all 150ms ease-in-out;
+}
+.btn-login:hover {
+    box-shadow: 0 0 10px 0 var(--morado-neon) inset, 0 0 10px 4px var(--morado-neon);
+}
+
+
+/* SWIPER */
+
+.swiper-container {
+    margin-top: 3px ;
+    width: 100%;
+    height: 89vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+
+    /* Center slide text vertically */
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+}
+
+
+/*RESPONSIVE*/
+
+@media screen and (max-width: 650px){
+
+    /*TOPBAR1*/
+
+    .contenedor__topbar1-logo{
+        display:none;
+    }
+
+    .logo_topbar2{
+        display:inline;
+    }
+
+
 }

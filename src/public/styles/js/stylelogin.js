@@ -3,6 +3,30 @@ document.getElementById("btn__registrarse").addEventListener("click",register);
 
 window.addEventListener=("resize",anchopagina);
 
+/*var UserName,password, expresion;
+UserName = document.getElementById(UserName).value;
+password = document.getElementById(password).value;
+var error = document.getElementById(error);
+error.style.color= "red";
+
+var form = document.getElementById("formulario-login");
+form.addEventListener("submit", function(evt){
+    evt.preventDefault();
+    var mensajesError =[];
+    if(UserName === "" ){
+        mensajesError.push("Ingresa tu Username");
+    }else if(UserName.length>25){
+        mensajesError.push("Username demasiado largo");
+    };
+
+    if( password === "" ){
+        mensajesError.push("Ingresa tu password");
+    };
+    error.innerHTML = mensajesError.join(", ");
+})*/
+
+
+
 
 //topbar animaciones
 

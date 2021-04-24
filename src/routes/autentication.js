@@ -13,7 +13,7 @@ router.get("/signup",isNotLoggedIn,(req,res)=>{
 
 
 router.post("/signup",isNotLoggedIn, passport.authenticate("local.signup",{
-    successRedirect:"/profile",
+    successRedirect:"/home",
     failureRedirect:"/signin"
 }));
 
@@ -29,7 +29,7 @@ router.get("/signin",isNotLoggedIn,(req,res)=>{
 
 router.post("/signin", isNotLoggedIn,(req,res,next)=>{
     passport.authenticate("local.signin",{
-        successRedirect:"/profile",
+        successRedirect:"/home",
         failureRedirect:"/signin"
     })(req,res,next);
 });

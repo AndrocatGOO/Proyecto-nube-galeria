@@ -4,18 +4,54 @@
         <%- include('./partials/head'); %>
         <title>inicio</title>
         <!--ESTILOS-->
-        <!--SCRIPT-->
-        <!--ESTILOS-->
-        <script src='styles/js/styleindex.js'></script>
         <link rel="stylesheet" href='styles/css/index.css'>
+        <!--spliter-->
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+        <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
+        <script src="https://unpkg.com/swiper/swiper-bundle.js"></script>
+        <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
         <!--SCRIPT-->
         <script src="scripts/index.js"></script>
     </head>
     <body>
-        <%- include('./partials/header'); %>
+        <header>
+            <nav>
+                <div class="contenedor__topbar1">
+                    <div class="contenedor__topbar1-logo">
+                        <a href="/home">
+                            <img class="logo_topbar1" src="/img/logo_texto_100px.png">
+                        </a>
+                    </div>
+                    <div class="contenedor__topbar2">
+                        <a href="/home">
+                            <img class="logo_topbar2" src="/img/logo_100px.png">
+                        </a>
+                    </div>
+                    <div class="contenedor_btn_login" >
+                        <a href="/signin">
+                            <button  class="btn-login" >
+                                Login/Register
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </header>
         <main>
-            index
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <img src="/img/1-index.png" class="swiper-slide"></img>
+                    <img src="/img/2-index.png" class="swiper-slide"></img>
+                    <img src="/img/3-index.png" class="swiper-slide"></img>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+                <!-- Add Arrows -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+            </div>
         </main>
         <%- include('./partials/footer'); %>
     </body>
+    <script src='styles/js/styleindex.js'></script>
 </html>

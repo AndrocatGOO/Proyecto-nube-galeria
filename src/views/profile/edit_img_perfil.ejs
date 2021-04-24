@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%- include('../partials/head'); %>
+    <title>main</title>
+    <!--ESTILOS-->
+    <link rel="stylesheet" href='http://localhost:3000/styles/css/postimg/editheader.css'>
+    <!--SCRIPT-->
+</head>
+    <body>
+        <%- include('../partials/header'); %>
+        <main>
+            <div class="contenedor_form">
+                <form action='/profile/edit_img_perfil/<%=user_id %>' class='form' method="POST" enctype="multipart/form-data">
+                    <h1 >Imagen Perfil</h1>
+                    <div class="file-input">
+                        <input type="file" name="image" class="custom-file-input file" id="img-uploader">
+                        <label for="img-uploader" >Escoje Imagen</label>
+                    </div>
+                    <P class="texto-header-foot">Recomendamos que la imagen no supere(1024 x 1024 px)</p>
+                    <button  class=" button glow-on-hover">
+                        Enviar
+                    </button>
+                </form>
+            </div>
+        </main>
+        <%- include('../partials/footer'); %>
+    </body>
+</html>

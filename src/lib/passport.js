@@ -44,11 +44,20 @@ passport.use("local.signup", new LocalStrategy({
         password,
         email
     };
-    password = newUser.password = await helpers.encryptPassword(password);
-
-    const result = await pool.query(`INSERT INTO user (email, username, password) values ('${email}','${UserName}','${password}');`);
-    newUser.id= result.insertId;
-    return done(null, newUser.id);
+    const usuarios = await pool.query(`SELECT * FROM user WHERE username='${UserName}';`)
+    console.log(usuarios);
+    if (usuarios.length > 0){
+        done(null,false);
+    }else{
+        password = newUser.password = await helpers.encryptPassword(password);
+        const result = await pool.query(`INSERT INTO user (email, username, password) values ('${email}','${UserName}','${password}');`);
+    console.log(result);
+    const result_2 = await pool.query(`INSERT INTO profile (user_id, username) values ('${result.insertId}','${UserName}');`);
+    const user = await pool.query(`SELECT * FROM user WHERE username='${UserName}';`);
+    console.log(result_2);
+    serialize = user[0];
+    done(null, serialize);
+    }
 }));
 
 

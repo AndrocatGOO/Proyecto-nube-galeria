@@ -10,7 +10,9 @@ CREATE TABLE user(
 );
 
 alter TABLE user
-    add nick varchar(25) NOT NULL;
+    add username varchar(25) NOT NULL;
+
+
 
 create TABLE profile(
     user_id int,
@@ -26,6 +28,15 @@ create TABLE profile(
 alter TABLE profile
     add primary key (user_id);
 
+ALTER TABLE profile ADD username VARCHAR;
+
+
+
+alter TABLE profile
+    add FOREIGN key (username) REFERENCES user(username);
+
+
+
 create TABLE post(
     id int(20) NOT NULL auto_increment PRIMARY key,
     src varchar(255),
@@ -39,8 +50,5 @@ create TABLE post(
 
 
 
-
-insert into user (nick, email, password) values ("prueba","asd@asd.com","123asd");
-
---
-INSERT INTO post (src, title, descripcion) 
+alter TABLE post
+    add FOREIGN key (user_id) REFERENCES profile(user_id);

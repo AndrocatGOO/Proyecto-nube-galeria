@@ -1,0 +1,109 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+}
+
+:root{
+    --negro:#000000;
+    --morado-neon: rgb(247, 0, 255);
+}
+
+body{
+    background-color: rgb(28, 28, 28);
+}
+
+
+.card-columns {
+    column-count: 5;
+}
+
+.contenedor_imagenes .row{
+    margin: 10px 5vw ;
+}
+
+
+
+.card{
+    background-color: transparent;
+    border: none;
+}
+
+.card-body{
+    color: white;
+    margin-top: 0;
+}
+
+.card-img-top{
+    border-radius: 5px;
+margin-bottom: 0;
+}
+
+.container_user_img{
+    margin-top: 0;
+}
+
+
+
+.user_img{
+    margin: 1vh;
+    width: 4vh;
+    height: 4vh;
+    border-radius: 50%;
+    background-image: url(../../img/badground_profile.png);
+    background-size: contain;
+    border: 2px solid rgb(255, 255, 255);
+
+}
+
+.container_user_img b{
+    font-size: 20px;
+    color: white;
+    width: 100%;
+}
+
+@media screen and (max-width: 1281px){
+    .card-columns {
+        column-count: 4;
+    }
+    .contenedor_imagenes .row{
+        margin: 10px 5vw;
+    }
+}
+
+@media screen and (max-width: 800px){
+    .card-columns {
+        column-count: 3;
+    }
+    .contenedor_imagenes .row{
+        margin: 10px 5px;
+    }
+}
+
+@media screen and (max-width: 700px){
+    .card-columns {
+        column-count: 2;
+    }
+    .contenedor_imagenes .row{
+        margin: 10px 5px;
+    }
+}
+
+@media screen and (max-width: 576px){
+    .card-columns {
+        column-count: 1;
+    }
+    .contenedor_imagenes .row{
+        margin: 10px 01px;
+    }
+    .user_img{
+        margin: 3vh;
+        width: 10vh;
+        height: 10vh;
+    }
+    .container_user_img b{
+        font-size: 2vh;
+    }
+}

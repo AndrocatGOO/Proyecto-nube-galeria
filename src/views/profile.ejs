@@ -6,13 +6,37 @@
     <!--ESTILOS-->
     <link rel="stylesheet" href='styles/css/profile.css'>
     <!--SCRIPT-->
-    <script src="dist/timeago.min.js"></script>
 </head>
     <body class="body">
         <%- include('./partials/header'); %>
         <main>
-            <div class="card card-body text-center">
-                perfil
+            <div class="header_profile">
+                <div class="container_header">
+                    <form>
+                        <a href="profile/editheader/<%=  perfil.user_id  %> ">
+                            <img class="header"  src="<%= perfil.image_header %> ">
+                        </a>
+                    </form>
+                </div>
+                <div class="container_profile_img">
+                    <img class="profile_img" src="<%= perfil.image %> ">
+                    <a class=" fas fa-edit " href="profile/edit_img_perfil/<%=  perfil.user_id  %>"></a>
+                    <b class="Username"><%= perfil.username %></b>
+                </div>
+                <a class="text_profile_edit fas fa-edit " href="profile/editprofile/<%= perfil.user_id %> "></a>
+                <div class="profile_biografia">
+                    <p class="texto_profile_biografia"><%= perfil.biografia %></p>
+                </div>
+                <div class="profile_gender">
+                    <i class="fas fa-birthday-cake"></i>
+                    <b class="texto_profile_age_of_birth"><%= dateformat(perfil.age_of_birth,"dddd dS, mmmm, yyyy") %></b><br>
+                    <i class="fas fa-venus-mars"></i>
+                    <b class="texto_profile_gender"><%= perfil.gender %></b>
+                </div>
+                <div class="profile_public_web">
+                    <i class="fas fa-link"></i>
+                    <a class="texto_profile_public_web" href="<%= perfil.public_web %>">Sitio Web/Red social</a>
+                </div>
             </div>
             <div class="col-md-4 mx-auto">
                 <div class="card card-body text-center">
@@ -20,11 +44,11 @@
                     <a href="/profile/add">    AQUI!</a>
                 </div>
             </div>
-            <div class="container p-4">
+            <div class="contenedor_imagenes p-4">
                 <div class="row">
                     <div class="card-columns">
                         <% imgs.forEach(function(imgs){ %>
-                            <div class="card">
+                            <div class="card animated fadeInUp">
                                 <img src="<%= imgs.imageURL%> " class="card-img-top">
                                 <div class="card-body">
                                     <h5 class="card-title"><%= imgs.title %></h5>

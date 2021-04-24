@@ -25,20 +25,22 @@ register('es_ES', (number, index, total_sec) => [
 const timeago = timestamp => format(timestamp, 'es_ES');
 
 
-console.log("pasando por rutas");
 
-//ROUTES RUTAS html
 
-router.get("/",(req, res)=>{                      //redirigir al inicio de la web
+//ROUTES 
+
+router.get("/",isNotLoggedIn,(req, res)=>{                      //redirigir al inicio de la web
     res.render("index");                         //en ves de usar   res.sendFile(path.join(__dirname + "/views/index.html"));   se usa esto para archivos ejs
 })
 
-router.get("/index",(req, res)=>{                      //redirigir al inicio de la web
+router.get("/index",isNotLoggedIn,(req, res)=>{                      //redirigir al inicio de la web
     res.render("index");                         //en ves de usar   res.sendFile(path.join(__dirname + "/views/index.html"));   se usa esto para archivos ejs
 })
 
 router.get("/home",isLoggedIn , async (req,res)=>{
-    const img = await pool.query(`SELECT * FROM post ;`);
+    const img = await pool.query(`select imageURL,title,image,username from post inner join profile on post.user_id = profile.user_id`);
+    console.log(img);
+
     res.render("home",{ imgs:img ,timeago});
 });
 

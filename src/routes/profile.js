@@ -6,7 +6,7 @@ const { isLoggedIn,isNotLoggedIn } = require('../lib/auth');
 const cloudinary = require('cloudinary');
 const { Router } = require("express");
 const fs = require('fs-extra');
-const  dateformat  = require('dateformat');
+
 
 //SCRIP DE HACE CUANTO SE SUBIO LA IMAGEN
 const { format, register } = require('timeago.js');
